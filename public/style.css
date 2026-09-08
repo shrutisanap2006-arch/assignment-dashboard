@@ -1,0 +1,31 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  margin: 0;
+  padding: 30px;
+}
+
+main {
+  max-width: 750px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+section {
+  margin-top: 25px;
+}
+
+input, select, button {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+button {
+  background: #1769aa;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
