@@ -1,0 +1,147 @@
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.summary-card {
+  padding: 22px;
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.18);
+}
+
+.summary-card h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.summary-card p {
+  margin: 10px 0 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.summary-card .count {
+  display: block;
+  margin-top: 14px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.asdd { background: linear-gradient(135deg, #2563eb, #4f46e5); }
+.aisc { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+.smld { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+.wmad { background: linear-gradient(135deg, #db2777, #f43f5e); }
+
+.report-card { margin-bottom: 30px; }
+
+.subject-report {
+  margin-top: 25px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.subject-report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 20px;
+  color: white;
+  background: #4f46e5;
+}
+
+.subject-report-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.assignment-report {
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.assignment-report:last-child { border-bottom: 0; }
+
+.assignment-report h4 {
+  margin: 0;
+  color: #1e293b;
+}
+
+.assignment-report p {
+  margin: 7px 0 15px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.report-counts {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.report-count {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 20px;
+}
+
+.report-submitted {
+  color: #047857;
+  background: #d1fae5;
+}
+
+.report-not-submitted {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.student-report-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.student-report-table th {
+  padding: 11px;
+  color: #475569;
+  font-size: 12px;
+  text-align: left;
+  background: #f8fafc;
+}
+
+.student-report-table td {
+  padding: 11px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.submitted-text {
+  color: #047857;
+  font-weight: 700;
+}
+
+.not-submitted-text {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.no-assignment {
+  padding: 20px;
+  color: #64748b;
+  font-style: italic;
+}
+
+@media (max-width: 850px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

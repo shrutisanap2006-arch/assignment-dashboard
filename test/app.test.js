@@ -9,15 +9,19 @@ describe("Assignment API", () => {
     expect(Array.isArray(response.body)).toBe(true);
   });
 
-  test("POST /api/assignments creates an assignment", async () => {
+  test("POST /api/assignments creates an active assignment", async () => {
     const response = await request(app)
       .post("/api/assignments")
       .send({
         title: "Jenkins Practical",
-        dueDate: "2026-10-01"
+        subject: "ASDD",
+        dueDate: "2026-10-01",
+        status: "Active"
       });
 
     expect(response.statusCode).toBe(201);
     expect(response.body.title).toBe("Jenkins Practical");
+    expect(response.body.subject).toBe("ASDD");
+    expect(response.body.status).toBe("Active");
   });
 });

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subject Reports</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="reports.css" />
+</head>
+<body>
+  <main class="dashboard">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">TEACHER PORTAL</p>
+        <h1>Subject Reports</h1>
+        <p class="subtitle">
+          View subject-wise assignments and student submission records.
+        </p>
+        <a class="report-link" href="index.html">← Back to Dashboard</a>
+      </div>
+      <div class="hero-icon">📊</div>
+    </header>
+
+    <section id="subjectSummary" class="summary-grid"></section>
+
+    <section class="card report-card">
+      <div class="list-title">
+        <div>
+          <h2>Subject-wise Student Records</h2>
+          <p>Submitted and not-submitted status for every assignment.</p>
+        </div>
+      </div>
+
+      <div id="reportContent">Loading subject reports...</div>
+    </section>
+  </main>
+
+  <script src="report.js"></script>
+</body>
+</html>

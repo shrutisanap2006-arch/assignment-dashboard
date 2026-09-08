@@ -3,42 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assignment Dashboard</title>
+  <title>Teacher Assignment Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main>
-    <h1>Student Assignment Dashboard</h1>
+  <main class="dashboard">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">TEACHER PORTAL</p>
+        <h1>Assignment Dashboard</h1>
+        <p class="subtitle">
+          Create assignments, track submissions, and manage attendance.
+        </p>
+        <a class="report-link" href="reports.html">View Subject Reports →</a>
+      </div>
+      <div class="hero-icon">✓</div>
+    </header>
 
-    <section>
-      <h2>Create Assignment</h2>
-      <form id="assignmentForm">
-        <input id="title" placeholder="Assignment title" required />
-        <input id="dueDate" type="date" required />
-        <button type="submit">Add Assignment</button>
-      </form>
+    <section class="form-grid">
+      <article class="card">
+        <div class="card-heading">
+          <span class="icon blue">+</span>
+          <div>
+            <h2>Create Assignment</h2>
+            <p>Every new assignment is Active by default.</p>
+          </div>
+        </div>
+
+        <form id="assignmentForm">
+          <label for="title">Assignment title</label>
+          <input id="title" placeholder="Example: Jenkins Practical" required />
+
+          <label for="subject">Subject</label>
+          <div class="select-wrapper">
+            <span class="select-icon">📖</span>
+            <select id="subject" required>
+              <option value="">Select a subject</option>
+              <option value="ASDD">ASDD</option>
+              <option value="AISC">AISC</option>
+              <option value="SMLD">SMLD</option>
+              <option value="WMAD">WMAD</option>
+            </select>
+            <span class="select-arrow">⌄</span>
+          </div>
+
+          <label for="dueDate">Due date</label>
+          <input id="dueDate" type="date" required />
+
+          <button type="submit">Create Assignment</button>
+        </form>
+      </article>
+
+      <article class="card">
+        <div class="card-heading">
+          <span class="icon purple">✓</span>
+          <div>
+            <h2>Student Submission Record</h2>
+            <p>Select an assignment and mark every student.</p>
+          </div>
+        </div>
+
+        <label for="recordSubject">Choose subject</label>
+        <div class="select-wrapper">
+          <span class="select-icon">📚</span>
+          <select id="recordSubject">
+            <option value="">Select a subject</option>
+            <option value="ASDD">ASDD</option>
+            <option value="AISC">AISC</option>
+            <option value="SMLD">SMLD</option>
+            <option value="WMAD">WMAD</option>
+          </select>
+          <span class="select-arrow">⌄</span>
+        </div>
+
+        <label for="recordAssignmentId">Choose assignment</label>
+        <div class="select-wrapper">
+          <span class="select-icon">📝</span>
+          <select id="recordAssignmentId" disabled>
+            <option value="">Select a subject first</option>
+          </select>
+          <span class="select-arrow">⌄</span>
+        </div>
+
+        <p class="field-help">
+          Closed assignments do not appear in this list.
+        </p>
+      </article>
     </section>
 
-    <section>
-      <h2>Submit Assignment</h2>
-      <form id="submissionForm">
-        <select id="assignmentId" required>
-          <option value="">Choose an assignment</option>
-        </select>
-        <input id="studentName" placeholder="Student name" required />
-        <button type="submit">Submit</button>
-      </form>
+    <section class="management-grid">
+      <article class="card">
+        <div class="card-heading">
+          <span class="icon orange">!</span>
+          <div>
+            <h2>Assignment Notifications</h2>
+            <p>Change Active or Closed status assignment-wise.</p>
+          </div>
+        </div>
+
+        <div id="assignmentNotifications">
+          Loading assignment notifications...
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-heading">
+          <span class="icon green">✓</span>
+          <div>
+            <h2>Attendance Register</h2>
+            <p>Mark subject-wise daily attendance.</p>
+          </div>
+        </div>
+
+        <div class="attendance-controls">
+          <div>
+            <label for="attendanceSubject">Subject</label>
+            <select id="attendanceSubject">
+              <option value="">Select subject</option>
+              <option value="ASDD">ASDD</option>
+              <option value="AISC">AISC</option>
+              <option value="SMLD">SMLD</option>
+              <option value="WMAD">WMAD</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="attendanceDate">Attendance date</label>
+            <input id="attendanceDate" type="date" />
+          </div>
+        </div>
+
+        <div id="attendanceMessage" class="empty-message">
+          Select a subject and date to mark attendance.
+        </div>
+
+        <div class="table-wrapper">
+          <table id="attendanceTable">
+            <thead>
+              <tr>
+                <th>Student name</th>
+                <th>Attendance</th>
+              </tr>
+            </thead>
+            <tbody id="attendanceTableBody"></tbody>
+          </table>
+        </div>
+      </article>
     </section>
 
-    <section>
-      <h2>Assignments</h2>
-      <ul id="assignmentList"></ul>
+    <section class="lists-grid">
+      <article class="card list-card">
+        <div class="list-title">
+          <div>
+            <h2>All Assignments</h2>
+            <p>Created assignments and their current status</p>
+          </div>
+          <span class="tag">Tasks</span>
+        </div>
+        <ul id="assignmentList"></ul>
+      </article>
+
+      <article class="card list-card">
+        <div class="list-title">
+          <div>
+            <h2>Student List</h2>
+            <p>Mark submission status for selected assignment</p>
+          </div>
+          <span class="tag success-tag">Record</span>
+        </div>
+
+        <div id="studentRecordMessage" class="empty-message">
+          Select a subject and assignment to view students.
+        </div>
+
+        <div class="table-wrapper">
+          <table id="studentTable">
+            <thead>
+              <tr>
+                <th>Student name</th>
+                <th>Submission status</th>
+              </tr>
+            </thead>
+            <tbody id="studentTableBody"></tbody>
+          </table>
+        </div>
+      </article>
     </section>
 
-    <section>
-      <h2>Submissions</h2>
-      <ul id="submissionList"></ul>
-    </section>
+    <footer>ASDD Mini Project · Jira + GitHub + Jenkins</footer>
+    <div id="toast" class="toast"></div>
   </main>
 
   <script src="app.js"></script>
